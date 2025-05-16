@@ -32,7 +32,8 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
-  Test: 
+  Test:
+    runs-on: ubuntu-latest
     needs: Build
     steps: 
       - uses: actions/checkout@v4
