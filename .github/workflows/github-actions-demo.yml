@@ -40,7 +40,7 @@ jobs:
       - run: echo "🚀 Le code du dépôt a été cloné sur le serveur d'exécution."
       - uses: cypress-io/github-action@v6
         with:
-          dev: npm run dev
+          start: npm run dev
           browser: ${{ matrix.browsers }}
       - name: Upload Cypress videos
         uses: actions/upload-artifact@v4
