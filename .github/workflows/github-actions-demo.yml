@@ -33,6 +33,7 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
   Test: 
+    needs: Build
     steps: 
       - uses: actions/checkout@v4
       - run: npm run e2e:headless
