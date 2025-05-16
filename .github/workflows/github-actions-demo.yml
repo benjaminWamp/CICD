@@ -39,8 +39,9 @@ jobs:
           key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
       - run: echo "🚀 Le code du dépôt a été cloné sur le serveur d'exécution."
       - uses: cypress-io/github-action@v6
-        test: npm run test
-        browser: ${{ matrix.browsers }}
+        with:  
+          test: npm run test
+          browser: ${{ matrix.browsers }}
       - name: Upload Cypress videos
         uses: actions/upload-artifact@v4
         if: always()
