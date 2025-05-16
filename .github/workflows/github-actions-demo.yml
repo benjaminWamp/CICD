@@ -41,7 +41,6 @@ jobs:
       - uses: cypress-io/github-action@v6
         with:
           dev: npm run dev
-          test: npm run e2e:headless
           browser: ${{ matrix.browsers }}
       - name: Upload Cypress videos
         uses: actions/upload-artifact@v4
