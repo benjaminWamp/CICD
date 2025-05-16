@@ -38,16 +38,20 @@ jobs:
             /home/runner/.cache/Cypress
           key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
       - run: echo "🚀 Le code du dépôt a été cloné sur le serveur d'exécution."
-      - run: npm run e2e:headless
+      - uses: cypress-io/github-action@v6
+        test: npm run test
+        browser: ${{ matrix.browsers }}
       - name: Upload Cypress videos
         uses: actions/upload-artifact@v4
         if: always()
         with:
           path: cypress/videos/
+          browsers: ${{ matrix.browsers }}
       - name: Upload Cypress screenshots
         uses: actions/upload-artifact@v4
         if: failure()
         with:
           path: cypress/screenshot/
+          browsers: ${{ matrix.browsers }}
       - run: echo "🚀 Étapes de test terminées"
       - run : echo "🚀 Étapes de test terminées"
