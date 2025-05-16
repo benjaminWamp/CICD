@@ -26,7 +26,7 @@ jobs:
         - build
     strategy:
       matrix:
-        browsers: [ubuntu-latest, windows-latest]
+        browsers: [chrome, firefox, edge, opera]
     steps:
       - uses: actions/checkout@v4
       - run: echo "🚀 Lancement des étapes de test"
