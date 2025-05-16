@@ -24,6 +24,9 @@ jobs:
     runs-on: ubuntu-latest
     needs:
         - build
+    strategy:
+      matrix:
+        browsers: [ubuntu-latest, windows-latest]
     steps:
       - uses: actions/checkout@v4
       - run: echo "🚀 Lancement des étapes de test"
