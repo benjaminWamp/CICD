@@ -56,3 +56,22 @@ jobs:
           browsers: ${{ matrix.browsers }}
       - run: echo "🚀 Étapes de test terminées"
       - run : echo "🚀 Étapes de test terminées"
+  deploie: 
+    runs-on: ubuntu-latest
+    needs:
+      - build
+      - test
+    steps: 
+      - uses: appleboy/ssh-action@v1
+        with :
+          host: ${{secrets.SSH_HOST}}
+          username: ${{secrets.SSH_USER}}
+          key: ${{scretds.SSH_KEY}}
+          scripts: |
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh"] && \. "$NVM_DIr/nvm.sh"
+            cd CICD
+            git pull
+            npm install
+            npm run build
+            pm2 restart npm
