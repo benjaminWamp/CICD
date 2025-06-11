@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  next:
+    image: ghcr.io/benjaminwamp/cda242-next/next:latest
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+
