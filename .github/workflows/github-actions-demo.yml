@@ -83,8 +83,8 @@ jobs:
     permissions:
         contents: read
         packages: write
-    needs:
-      - build
+    # needs:
+    #   - build
     steps:
       - uses: actions/checkout@v4
       - name: Login to GitHub Container Registry
